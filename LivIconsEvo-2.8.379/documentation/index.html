@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LivIcons Evolution for jQuery - Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/prettify.css" rel="stylesheet">
+    <link href="css/documentation.css" rel="stylesheet">
+    <script>
+        var shiftWindow = function() { scrollBy(0, -50) };
+        window.addEventListener("hashchange", shiftWindow);
+        function load() { if (window.location.hash) shiftWindow(); }
+    </script>
+</head>
+
+<body>
+    
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#main"><img src="img/logo-default.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#setup">Setup</a></li>
+                <li><a href="#html-css">HTML &amp; CSS</a></li>
+                <li><a href="#integration">Integration</a></li>
+                <li><a href="#options">Options</a></li>
+                <li><a href="#js_api">JS API</a></li>
+                <li><a href="#credits">Credits</a></li>
+                <li><a href="#changelog">Changelog</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div>
+    <div class="bg-color-white" id="main">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12"><h2>&ldquo;LivIcons Evolution for jQuery&rdquo; Documentation by DeeThemes</h2></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="well">
+                        <p>
+                            <b>Latest version:</b> <samp>2.8.379</samp><br>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="well">
+                        <p>Thank you for the purchasing of <b>LivIcons Evolution for jQuery</b>!<br>
+                        If you have any questions that are beyond the scope of this help file, please feel free to email via the contact form on my profile page on <a href="http://codecanyon.net/user/DeeThemes#contact">CodeCanyon</a>.<br>
+                        If you like these script please rate it with <b>5 stars</b>. Thanks so much!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bs-callout bs-callout-danger">
+                        <h4>IMPORTANT</h4>
+                        <p>LivIcons Evolution script uses an AJAX technology for the working. Thus no icons will appear on your page if that page is opened directly from your HDD in a browser (like file:///C:/path/to/your_page.html). Use this script on a working local (like XAMP, LAMP, etc.) or a global web-server, as you work as usual, for example, with PHP files.</p>
+                        <p>For the documentation with working examples please check the on-line <a href="http://livicons.com/documentation-jquery">version</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-sky-light" id="overview">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12"><h3 class="page-header">1. Overview of the pack</h3></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ol>
+                        <li>
+                            <p>Given the version number is <samp>MAJOR.MINOR.NUMBER_OF_ICONS</samp><br>
+                            If in any update of this product the <samp>NUMBER_OF_ICONS</samp> only is changed you need to update SVG icons files only from the <code>for_upload/LivIconsEvo/svg</code> folder.</p>
+                        </li>
+                        <li>
+                            <p>After downloading you will find the following folders in the archive:</p>
+                            <ul>
+                                <li>documentation</li>
+                                <li>for_develop</li>
+                                <li>for_upload</li>
+                            </ul>
+                            <p><b>documentation:</b> As title said this is the documentation.</p>
+                            <p><b>for_develop:</b> This folder contains only one JavaScript file: <samp>LivIconsEvo.src.js</samp>, which is a non-minified version of the main script for any of your customization.</p>
+                            <p><b>for_upload:</b> This one is for uploading to your server (except PHP example files). The folder contains all the necessary files in a minified form to reduce your bandwidth and loading time.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-white" id="setup">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12"><h3 class="page-header">2. Setup</h3></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ol>
+                        <li>Open the <b>LivIconsEvo.defaults.js</b> file from the <b>for_upload > LivIconsEvo > js</b> folder in preferred text editor (not in MS Word!).</li>
+                        <li>Adjust the default options inside <code>defaultOptions</code> object, according to the information below. Especially please pay attention to the <code>pathToFolder</code> one. If you upload the <b>LivIconsEvo</b> directory to the root one on your server, the value of <code>pathToFolder</code> option should be either <code>'/LivIconsEvo/svg/'</code> or <code>'http://www.your_site.com/LivIconsEvo/svg/'</code>  or <code>'https://www.your_site.com/LivIconsEvo/svg/'</code> if you use an encryption. Save the file.</li>
+                        <li>Upload to your server all the files and directories from the <b>for_upload</b> folder.</li>
+                        <li>If you already use <b>jQuery</b> on your site <b>do not</b> upload it again.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-sky-light" id="html-css">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12"><h3 class="page-header">3. HTML and CSS Structures</h3></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>After uploading you need to declare a CSS file in the <code>&lt;head></code> section (or just copy the styles from <b>LivIconsEvo > css > LivIconsEvo.css</b> file into your existing style sheet) and JavaScript files before the closing <code>&lt;/body></code> tag in your HTML page's code.</p>
+                    
+                    <div class="bs-callout bs-callout-info">
+                        <h5>NOTE</h5>
+                        <p>It's recommended to place JS declarations before the closing <code>&lt;/body></code> tag at the <b>end</b> of your HTML document, not inside a <code>&lt;head>&lt;/head></code> section.</p>
+                    </div>
+
+                    <p><b>JavaScript</b> declarations can be done in the <b>two (2)</b> ways:</p>
+                </div>
+            </div>
+            <div class="row">
+                <h4 class="either">EITHER</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <p>If you already use any components of GreenSock animation pack, include only the missing ones.</p>
+                </div>
+                <div class="col-md-9">
+<pre class="prettyprint linenums">&lt;head>
+    ...
+    &lt;!-- all your other CSS files go here--&gt;
+    ...
+    &lt;link href="LivIconsEvo/css/LivIconsEvo.css" rel="stylesheet"&gt;
+&lt;/head>
+
+&lt;body&gt;
+    ...
+    &lt;!-- All your page's code goes here --&gt;
+    ...
+    &lt;script src="path/to/your_jQuery_copy.js"&gt;&lt;/script&gt;
+    ...
+    &lt;!-- Your other script files go here --&gt;
+    ...
+    &lt;script src="LivIconsEvo/js/tools/snap.svg-min.js"&gt;&lt;/script&gt;
+    &lt;script src="LivIconsEvo/js/tools/TweenMax.min.js"&gt;&lt;/script&gt;
+    &lt;script src="LivIconsEvo/js/tools/DrawSVGPlugin.min.js"&gt;&lt;/script&gt;
+    &lt;script src="LivIconsEvo/js/tools/MorphSVGPlugin.min.js"&gt;&lt;/script&gt;
+    &lt;script src="LivIconsEvo/js/tools/verge.min.js"&gt;&lt;/script&gt;
+    &lt;script src="LivIconsEvo/js/LivIconsEvo.defaults.js">&lt;/script>
+    &lt;script src="LivIconsEvo/js/LivIconsEvo.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</pre> 
+                    <div class="bs-callout bs-callout-danger">
+                        <p><b>The order</b> of the declarations is important.</p>
+                    </div>
+                    <div class="bs-callout bs-callout-danger">
+                        <p>If you <b>already</b> use <b>jQuery</b> on your site <b>do not</b> declare it again. If not yet, please don't forget to edit the <code>path/to/your_jQuery_copy.js</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <h4 class="either">OR</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <p>You can declare only the one JS file <b>LivIconsEvo.Tools.js</b>, which contains all the necessary libraries.</p>
+                </div>
+                <div class="col-md-9">
+<pre class="prettyprint linenums">&lt;head>
+    ...
+    &lt;!-- all your other CSS files go here--&gt;
+    ...
+    &lt;link href="LivIconsEvo/css/LivIconsEvo.css" rel="stylesheet"&gt;
+&lt;/head>
+
+&lt;body&gt;
+    ...
+    &lt;!-- All your page's code goes here --&gt;
+    ...
+    &lt;script src="path/to/your_jQuery_copy.js"&gt;&lt;/script&gt;
+    ...
+    &lt;!-- Your other script files go here --&gt;
+    ...
+    &lt;script src="LivIconsEvo/js/LivIconsEvo.Tools.js"&gt;&lt;/script&gt;
+    &lt;script src="LivIconsEvo/js/LivIconsEvo.defaults.js">&lt;/script>
+    &lt;script src="LivIconsEvo/js/LivIconsEvo.min.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</pre> 
+                    <div class="bs-callout bs-callout-danger">
+                        <p><b>The order</b> of the declarations is important.</p>
+                    </div>
+                    <div class="bs-callout bs-callout-danger">
+                        <p>If you <b>already</b> use <b>jQuery</b> on your site <b>do not</b> declare it again. If not yet, please don't forget to edit the <code>path/to/your_jQuery_copy.js</code></p>
+                    </div>
+                    <p>Now you are ready to use LivIcons Evolution.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-white" id="integration">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="page-header">4. Integration</h3>
+                    <h4>Via HTML5 data-attributes</h4>
+                    <p>You can use LivIcons Evolution purely through the markup API without writing a single line of JavaScript. In that case, when a document is ready, any <code>&lt;div></code> with class <code>.livicon-evo</code> will contain an icon according to options which are set in <code>data-options</code> attribute.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Prettified:</p>
+<pre class="prettyprint linenums">&lt;div class="livicon-evo" data-options="
+    name: bell.svg; 
+    size: 120px; 
+    style: original;
+
+    <b>... other options ...</b>
+    
+    tryToSharpen: true
+">&lt;/div></pre> 
+                </div>
+                <div class="col-md-6">
+                    <p>Compact:</p>
+<pre class="prettyprint linenums">&lt;div class="livicon-evo" data-options="name: bell.svg; size: 120px; style: original; <b>... other options ...;</b> tryToSharpen: true">&lt;/div></pre>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="bs-callout bs-callout-danger">
+                        <p>All option-value pairs <b>must</b> be separated with one semicolon <code>;</code> The description for all the available options can be found further in this document.</p>
+                    </div>
+                    <div class="bs-callout bs-callout-info">
+                        <h5>CONFIGURATION TOOL</h5>
+                        <p>The LivIcons Configuration Tool can help you to adjust any LivIcon <a target="_blank" href="http://livicons.com/configurator">here</a> and get ready to use HTML and/or JavaScript code.<br>
+                        <b>Note:</b> this tool <b>is not</b> and <b>will be not</b> included in a downloaded pack with any versions of Livicons Evolution as a jQuery Plugin, it is available on-line at LivIcons.com only.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Via Programmatic API</h4>
+                    <p>Using class <code>.livicon-evo</code> is not mandatory. You can use any other ID or class name of your elements for adding LivIcons programmatic. In that case use jQuery method: <code>.addLiviconEvo();</code></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Prettified:</p>
+<pre class="prettyprint linenums">jQuery('#your_id_or_.your_class').addLiviconEvo({
+    name: check.svg, 
+    size: 50%, 
+    style: lines, 
+    <b>... other options ...,</b> 
+    tryToSharpen: true
+});</pre> 
+                </div>
+                <div class="col-md-6">
+                    <p>Compact:</p>
+<pre class="prettyprint linenums">jQuery('#your_id_or_.your_class').addLiviconEvo({name: check.svg, size: 50%, style: lines, <b>... other options ...,</b> tryToSharpen: true});</pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Programmatic API lets you use LivIcons not only when a document is ready, but with other events, such as window loading, AJAX ones (success, done, etc.) and any others. All the LivIcons Evolution methods are described further in this document.</p>
+                    <div class="bs-callout bs-callout-info">
+                        <h5>CONFIGURATION TOOL</h5>
+                        <p>And again, the LivIcons Configuration Tool can help you to adjust any LivIcon <a target="_blank" href="http://livicons.com/configurator">here</a> and get ready to use HTML and/or JavaScript code.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-sky-light" id="options">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="page-header">5. Options</h3>
+                    <p>The highest priority is given to the options are set via a JavaScript code inside methods like <code>.addLiviconEvo( options )</code>. After that the script checks for options in the HTML5 data-attribute <code>data-options</code>. And the last it checks for default options from the <code>defaultOptions</code> object.</p>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th><b>option</b></th>
+                                <th><b>type</b></th>
+                                <th><b>value</b></th>
+                                <th><b>default</b></th>
+                                <th><b>description</b></th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td colspan="5">
+                                    <h4><b>The visualization options</b></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pathToFolder</td>
+                                <td>string</td>
+                                <td>path to folder with all LivIcons</td>
+                                <td><samp>'REPLACE_ME!'</samp></td>
+                                <td>Please set this option in the <b>LivIconsEvo.defaults.js</b> file itself.<br>
+                                        If you upload the <b>LivIconsEvo</b> folder to the root directory of your server, the value of this option should be either <code>'/LivIconsEvo/svg/'</code> or <code>'http://www.your_site.com/LivIconsEvo/svg/'</code>  or <code>'https://www.your_site.com/LivIconsEvo/svg/'</code> if you use an encryption.</td>
+                            </tr>
+                            <tr>
+                                <td>name</td>
+                                <td>string</td>
+                                <td>SVG file name</td>
+                                <td><samp>'bell.svg'</samp></td>
+                                <td>
+                                    Any SVG file name for an icon from the <code>LivIconsEvo/svg</code> folder. For example <code>'bell'</code> or <code>'bell.svg'</code>. You may omit the <code>.svg</code> extension.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>style</td>
+                                <td>string</td>
+                                <td>original<br>
+                                        solid<br>
+                                        filled<br>
+                                        lines<br>
+                                        lines-alt<br>
+                                        linesAlt</td>
+                                <td><samp>'original'</samp></td>
+                                <td>
+                                    The one of the five (5) possible styles ('lines-alt' and 'linesAlt' are the same).
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>size</td>
+                                <td>string</td>
+                                <td>value in px, %, em, etc.</td>
+                                <td><samp>'60px'</samp></td>
+                                <td>A desired value in pixels, %, ems, etc.<br>
+                                    Also can be controlled by an external style sheet for different media queries for example. Please look at the end of <b>for_upload > LivIconsEvo > css > LivIconsEvo.css</b> file.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>strokeStyle</td>
+                                <td>string</td>
+                                <td>original<br>
+                                        round<br>
+                                        square
+                                </td>
+                                <td><samp>'original'</samp></td>
+                                <td>Controls how strokes will look like.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>strokeWidth</td>
+                                <td>string or numeric</td>
+                                <td>original<br>
+                                        or pixels
+                                </td>
+                                <td><samp>'original'</samp></td>
+                                <td>
+                                    The stroke width of shapes. Leave it <code>'original'</code> or set any numeric value in pixels.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>tryToSharpen</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                        false</td>
+                                <td><samp>true</samp></td>
+                                <td>
+                                    Apply or not a micro shift of SVG shapes to try to make them more sharp (crisp).<br>However, sometimes for different icon size it's better to set it to <code>false</code>
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>rotate</td>
+                                <td>string or numeric</td>
+                                <td>none<br>
+                                    [0 ... 360]</td>
+                                <td><samp>'none'</samp></td>
+                                <td>The <code>'none'</code> or any desired value in deg from range 0 ... 360.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>flipHorizontal</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                    false</td>
+                                <td><samp>false</samp></td>
+                                <td><code>true</code> will flip an icon horizontally.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>flipVertical</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                    false</td>
+                                <td><samp>false</samp></td>
+                                <td><code>true</code> will flip an icon vertically.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>strokeColor</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#82CEF9'</samp></td>
+                                <td>The stroke color of SVG shapes. Takes effect when <b>style</b> option is set to either <code>'filled'</code> or <code>'lines'</code> or <code>'lines-alt'</code> or <code>'linesAlt'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>strokeColorAction</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#e74c3c'</samp></td>
+                                <td>Take effect when <code>colorsOnHover</code> or <code>colorsWhenMorph</code> options are set to <code>'custom'</code> and <code>style</code> option is either <code>'original'</code> or <code>'filled'</code> or <code>'lines'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>strokeColorAlt</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#E67E22'</samp></td>
+                                <td>The alternative stroke color of SVG shapes. Takes effect when <b>style</b> option is set to either <code>'lines-alt'</code> or <code>'linesAlt'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>strokeColorAltAction</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#34495e'</samp></td>
+                                <td>Take effect when <code>colorsOnHover</code> or <code>colorsWhenMorph</code> options are set to <code>'custom'</code> and <code>style</code> option is <code>'lines-alt'</code> or <code>'linesAlt'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>fillColor</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#d4ebf9'</samp></td>
+                                <td>The fill color of SVG shapes. Takes effect when <b>style</b> option is set to <code>'filled'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>fillColorAction</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#34495e'</samp></td>
+                                <td>Take effect when <code>colorsOnHover</code> or <code>colorsWhenMorph</code> options are set to <code>'custom'</code> and <code>style</code> option is either <code>'original'</code> or <code>'filled'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>solidColor</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#999999'</samp></td>
+                                <td>The main color of SVG shapes when <b>style</b> option is set to <code>'solid'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>solidColorAction</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#000000'</samp></td>
+                                <td>Take effect when <code>colorsOnHover</code> or <code>colorsWhenMorph</code> options are set to <code>'custom'</code> and <code>style</code> option is <code>'solid'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>solidColorBg</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#ffffff'</samp></td>
+                                <td>The color of a background element on your page, on which an icon will appear. Takes effect when <b>style</b> option is set to <code>'solid'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>solidColorBgAction</td>
+                                <td>string</td>
+                                <td>HEX code</td>
+                                <td><samp>'#ffffff'</samp></td>
+                                <td>Take effect when <code>style</code> option is <code>'solid'</code>. This option is useful when the background element (on which a LivIcon lays) changes its color on hover event too.</td>
+                            </tr>
+                            <tr>
+                                <td>colorsOnHover</td>
+                                <td>string</td>
+                                <td>none<br>
+                                        lighter<br>
+                                        darker<br>
+                                        custom<br>
+                                        hue0&nbsp;...&nbsp;hue360</td>
+                                <td><samp>'none'</samp></td>
+                                <td>The one of the five (5) possible effects. For example, <code>'hue180'</code> will change an icon's colors around 180 deg of a color wheel.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>colorsHoverTime</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>0.3</samp></td>
+                                <td>The duration of changing colors, when <b>colorsOnHover</b> option is <b>not</b> set to <code>'none'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>colorsWhenMorph</td>
+                                <td>string</td>
+                                <td>none<br>
+                                        lighter<br>
+                                        darker<br>
+                                        custom<br>
+                                        hue0&nbsp;...&nbsp;hue360</td>
+                                <td><samp>'none'</samp></td>
+                                <td>For <b>morph</b> icons only! The one of the five (5) possible effects. For example, <code>'hue180'</code> will change a morph icon's colors around 180 deg of a color wheel.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>brightness</td>
+                                <td>numeric</td>
+                                <td>factor</td>
+                                <td><samp>0.10</samp></td>
+                                <td>The factor (multiplier) of changing colors' brightness, when <b>colorsOnHover</b> or <b>colorsWhenMorph</b> options are set to <code>'lighter'</code> or <code>'darker'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>saturation</td>
+                                <td>numeric</td>
+                                <td>factor</td>
+                                <td><samp>0.07</samp></td>
+                                <td>The factor (multiplier) of changing colors' saturation, when <b>colorsOnHover</b> or <b>colorsWhenMorph</b> options are set to <code>'lighter'</code> or <code>'darker'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>morphState</td>
+                                <td>string</td>
+                                <td>start<br>
+                                        end</td>
+                                <td><samp>'start'</samp></td>
+                                <td>For <b>morph</b> icons only. The initial state of morph icon.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>morphImage</td>
+                                <td>string</td>
+                                <td>none<br>
+                                        or a URL</td>
+                                <td><samp>'none'</samp></td>
+                                <td>For background <b>morph</b> icons only! Backgrounds morph icons can have an image (JPG, PNG, GIF, SVG) inside them. For example, avatars or photos of your users can be placed inside "morph-square-sticker.svg" icon. A URL can look like <code>'http://www.your_site.com/path/to/user_avatar.jpg'</code>.
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>allowMorphImageTransform</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                        false</td>
+                                <td><samp>false</samp></td>
+                                <td>For <b>morph</b> icons only! If <code>true</code> the inside image will rotate and/or flip with a morph icon together.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>strokeWidthFactorOnHover</td>
+                                <td>string or numeric</td>
+                                <td>none<br>
+                                        or numeric value
+                                </td>
+                                <td><samp>'none'</samp></td>
+                                <td><code>'none'</code> or numeric value. Take effect on mouse hover event. For example, to increase stroke width twice set the option to <code>2</code>.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>strokeWidthOnHoverTime</td>
+                                <td>numeric</td>
+                                <td>
+                                    seconds
+                                </td>
+                                <td><samp>0.3</samp></td>
+                                <td>The duration of changing stroke width when <b>strokeWidthFactorOnHover</b> option is set to <b>not</b> <code>'none'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>keepStrokeWidthOnResize</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                    false</td>
+                                <td><samp>false</samp></td>
+                                <td><code>true</code> will keep the the stroke width of shapes when the <b>strokeWidth</b> option is <b>not</b> set to <code>'original'</code>.<br> Takes effect when and if an icon's size are changed with, for example, "resize" or "orientationchange" event.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <h4><b>The animation options</b></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>animated</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                        false</td>
+                                <td><samp>true</samp></td>
+                                <td>If <code>false</code>, an icon is static.</td>
+                            </tr>
+                            <tr>
+                                <td>eventType</td>
+                                <td>string</td>
+                                <td>none<br>
+                                        hover<br>
+                                        click</td>
+                                <td><samp>'hover'</samp></td>
+                                <td>If <code>'none'</code> an icon can be still animated with JavaScript method <code>.playLiviconEvo()</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>eventOn</td>
+                                <td>string</td>
+                                <td>self<br>
+                                    parent<br>
+                                    grandparent<br>
+                                    #some_id<br>
+                                    .some_class</td>
+                                <td><samp>'self'</samp></td>
+                                <td>"Hover" and "click" events can be bind not only on an icon itself (<code>'self'</code> value), but on <code>'parent'</code>, <code>'grandparent'</code> or any other element with <code>#some_id</code> or <code>.some_class</code> on your page.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>autoPlay</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                        false</td>
+                                <td><samp>false</samp></td>
+                                <td>Please be <b>careful</b> with <code>true</code> value, especially with "looped" animations.</td>
+                            </tr>
+                            <tr>
+                                <td>delay</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>0</samp></td>
+                                <td>The delay in seconds before an animation starts.</td>
+                            </tr>
+                            <tr>
+                                <td>duration</td>
+                                <td>string or numeric</td>
+                                <td>default<br>
+                                        or seconds</td>
+                                <td><samp>'default'</samp></td>
+                                <td>The total duration of an animation in seconds. The <code>'default'</code> value is different for each icon and is stored in SVG icon files themselves in the <code>'data-animoptions'</code> attribute.</td>
+                            </tr>
+                            <tr>
+                                <td>repeat</td>
+                                <td>string or integer</td>
+                                <td>default<br>
+                                        loop<br>
+                                        or number</td>
+                                <td><samp>'default'</samp></td>
+                                <td>The total number of an animation repeats. The <code>'default'</code> value is different for each icon and is stored in SVG icon files themselves in the <code>'data-animoptions'</code> attribute. This option does not take effect on <b>morph</b> icons.<br>
+                                Please be careful with <code>'loop'</code> value.</td>
+                            </tr>
+                            <tr>
+                                <td>repeatDelay</td>
+                                <td>string or numeric</td>
+                                <td>default<br>
+                                        or seconds</td>
+                                <td><samp>'default'</samp></td>
+                                <td>The delay in seconds between repeats. The <code>'default'</code> value is different for each icon and is stored in SVG icon files themselves in the <code>'data-animoptions'</code> attribute. This option does not take effect on <b>morph</b> icons.</td>
+                            </tr>
+                            <tr>
+                                <td>drawOnViewport</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                        false</td>
+                                <td><samp>false</samp></td>
+                                <td>If <code>true</code>, an icon will be "drawn" when it appears a first time in a browser viewport.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>viewportShift</td>
+                                <td>string</td>
+                                <td>none<br>
+                                        one-half<br>
+                                        oneHalf<br>
+                                        one-third<br>
+                                        oneThird<br>
+                                        full</td>
+                                <td><samp>'oneHalf'</samp></td>
+                                <td>Take effect when <code>drawOnViewport</code> is set to <code>true</code>. It means that animation starts only if SVG is in a users browser's viewport at least the given value, calculated from SVG height.</td>
+                            </tr>
+                            <tr>
+                                <td>drawDelay</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>0</samp></td>
+                                <td>The delay in seconds before a "drawing" animation starts.</td>
+                            </tr>
+                            <tr>
+                                <td>drawTime</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>1</samp></td>
+                                <td>The duration in seconds for a "drawing" animation of each icon's shape.</td>
+                            </tr>
+                            <tr>
+                                <td>drawStagger</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>0.1</samp></td>
+                                <td>The delay in seconds for a "drawing" animation for each icon's shape.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>drawStartPoint</td>
+                                <td>string</td>
+                                <td>start<br>
+                                        middle<br>
+                                        end</td>
+                                <td><samp>'middle'</samp></td>
+                                <td>The starting point from where a "drawing" animation starts for each icon's shape.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>drawColor</td>
+                                <td>string</td>
+                                <td>same<br>
+                                        or HEX code</td>
+                                <td><samp>'same'</samp></td>
+                                <td>The color for "drawing" lines.
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>drawColorTime</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>1</samp></td>
+                                <td>The duration in seconds for a changing colors when a "drawing" animation ends.</td>
+                            </tr>
+                            <tr>
+                                <td>drawReversed</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                        false</td>
+                                <td><samp>false</samp></td>
+                                <td><code>true</code> will reverse the order of shapes drawing.</td>
+                            </tr>
+                            <tr>
+                                <td>drawEase</td>
+                                <td>string or object</td>
+                                <td>ease value</td>
+                                <td><samp>'Power1.easeOut'</samp></td>
+                                <td>The easing function according to <a href="http://greensock.com/docs/#/HTML5/Easing/Power1/" target="_blank">GreenSock Ease Visualizer</a>.</td>
+                            </tr>
+                            <tr>
+                                <td>eraseDelay</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>0</samp></td>
+                                <td>The delay in seconds before an "erasing" animation starts.</td>
+                            </tr>
+                            <tr>
+                                <td>eraseTime</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>1</samp></td>
+                                <td>The duration in seconds for an "erasing" animation of each icon's shape.</td>
+                            </tr>
+                            <tr>
+                                <td>eraseStagger</td>
+                                <td>numeric</td>
+                                <td>seconds</td>
+                                <td><samp>0.1</samp></td>
+                                <td>The delay in seconds for an "erasing" animation for each icon's shape.</td>
+                            </tr>
+                            <tr>
+                                <td>eraseStartPoint</td>
+                                <td>string</td>
+                                <td>start<br>
+                                        middle<br>
+                                        end</td>
+                                <td><samp>'middle'</samp></td>
+                                <td>The starting point from where an "erasing" animation starts for each icon's shape.</td>
+                            </tr>
+                            <tr>
+                                <td>eraseReversed</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                        false</td>
+                                <td><samp>true</samp></td>
+                                <td><code>true</code> will reverse the order of shapes erasing.</td>
+                            </tr>
+                            <tr>
+                                <td>eraseEase</td>
+                                <td>string or object</td>
+                                <td>ease value</td>
+                                <td><samp>'Power1.easeOut'</samp></td>
+                                <td>The easing function according to <a href="http://greensock.com/docs/#/HTML5/Easing/Power1/" target="_blank">GreenSock Ease Visualizer</a>.</td>
+                            </tr>
+                            
+                            <tr>
+                                <td>touchEvents</td>
+                                <td>boolean</td>
+                                <td>true<br>
+                                        false</td>
+                                <td><samp>false</samp></td>
+                                <td>Apply or not special events handlers (touchstart and touchend) for touch devices.<br>
+                                    <b>This option is highly experimental!</b> It prevents default action of the events.<br>
+                                    <b>Please carefully test before using on a production site.</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <h4><b>Callback functions (using via programmatic API only!)</b></h4>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>beforeAdd</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired before a LivIcon is added first time on a page. Works inside <code>.addLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>afterAdd</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired after a LivIcon is successfully added first time on a page. Works inside <code>.addLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>beforeUpdate</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired before a LivIcon is updated. Works inside <code>.updateLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>afterUpdate</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired after a LivIcon is successfully updated. Works inside <code>.updateLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>beforeRemove</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired before a LivIcon is removed. Works inside <code>.removeLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>afterRemove</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired after a LivIcon is removed. Works inside <code>.removeLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>beforeDraw</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired before a LivIcon is drawn. Works inside <code>.drawLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>afterDraw</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired after a LivIcon is drawn. Works inside <code>.drawLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>duringDraw</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired during a LivIcon is being drawn. Works inside <code>.drawLiviconEvo()</code> method.<br>
+                                Function is fired a lot of times, so please be careful.</td>
+                            </tr>
+                            <tr>
+                                <td>beforeErase</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired before a LivIcon is erased. Works inside <code>.eraseLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>afterErase</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired after a LivIcon is erased. Works inside <code>.eraseLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>duringErase</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired during a LivIcon is being erased. Works inside <code>.eraseLiviconEvo()</code> method.<br>
+                                Function is fired a lot of times, so please be <b>careful</b>.</td>
+                            </tr>
+                            <tr>
+                                <td>beforeAnim</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired before a LivIcon's animation is started. Works inside <code>.playLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>afterAnim</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired after a LivIcon's animation is finished. Works inside <code>.playLiviconEvo()</code> method.</td>
+                            </tr>
+                            <tr>
+                                <td>duringAnim</td>
+                                <td>function</td>
+                                <td>function<br>or false</td>
+                                <td><samp>false</samp></td>
+                                <td>Is fired when a LivIcon's animation is playing. Works inside <code>.playLiviconEvo()</code> method.<br>
+                                Function is fired a lot of times, so please be <b>careful</b>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-white" id="js_api">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="page-header">6. Programmatic API</h3>
+                    <p>LivIcons Evolution has powerful JavaScript methods to programmatic work with.</p>
+                    <p>As it was said earlier, the using of <code>.livicon-evo</code> class name is not mandatory. You can add, update, change, remove, play, pause, draw, erase etc. a LivIcon within any element on your page.</p>
+                    <p>Methods below are described in details.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><code>.addLiviconEvo()</code></td>
+                                <td>The main method. It creates a LivIcon inside a desired element on your page. Must be called first, all others methods - after it.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><code>.updateLiviconEvo()</code></td>
+                                <td>Updates an already existing LivIcon with some new options for example. Even if a new <code>name</code> option is passed, the LivIcon will be updated instantly.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><code>.changeLiviconEvo()</code></td>
+                                <td>Updates an already existing LivIcon through the erasing of an existing one and drawing (if <code>drawOnViewport</code> is not set to <code>false</code>) a new icon with new options (if any) for example. This method combines <code>.eraseLiviconEvo</code>, <code>.updateLiviconEvo()</code> and <code>.drawLiviconEvo()</code> in one command.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><code>.drawLiviconEvo()</code></td>
+                                <td>Method to "draw" a LivIcon.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><code>.eraseLiviconEvo()</code></td>
+                                <td>Method to "erase" a LivIcon..</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><code>.playLiviconEvo()</code></td>
+                                <td>Starts an icon's animation.</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><code>.stopLiviconEvo()</code></td>
+                                <td>Completely stops an animation and reset it to starting position.</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><code>.pauseLiviconEvo()</code></td>
+                                <td>Pauses an animation and <b>doesn't</b> reset animation position.</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><code>.resumeLiviconEvo()</code></td>
+                                <td>Resumes an animation from the current position.</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><code>.removeLiviconEvo()</code></td>
+                                <td>Removes a LivIcon from a container. Also a container itself can be removed too.</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><code>.liviconEvoState()</code></td>
+                                <td>For <b>morph</b> icons only. Gets a current <code>morphState</code> or sets it to <code>'start</code> or <code>'end'</code>.</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><code>.liviconEvoOptions()</code></td>
+                                <td>Method for getting all options assigned to a LivIcon. Returns <samp>undefined</samp> if no icon was created yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.addLiviconEvo( option, value )</samp></h4>
+                    <p>Can take all the options and callback functions mentioned above in the <b>5. Options</b> section of this documentation.</p>
+<pre class="prettyprint linenums">//you can assign your CSS selection to a variable.
+var my_livicon = jQuery('#your_id_or_.your_class');
+
+//a first creation with options as Object
+my_livicon.addLiviconEvo({
+    name: 'bell.svg',
+    size: '120px',
+    duration: 3,
+    ... other options ...
+    drawOnViewport: true
+});
+
+//Or a first creation with one option-value pair
+my_livicon.addLiviconEvo('name', 'bell.svg');
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.updateLiviconEvo( option, value )</samp></h4>
+                    <p>Can take all the options and callback functions mentioned above in the <b>5. Options</b> section of this documentation.</p>
+                    <p>Please keep in mind that a new icon will have all previously options added earlier with a first creation.</p>
+<pre class="prettyprint linenums">//update an existing icon with new options as Object
+my_livicon.updateLiviconEvo({
+    name: 'pencil.svg',
+    size: '33.33333%',
+    duration: 'default'
+});
+
+//Or with one option-value pair
+my_livicon.updateLiviconEvo('name', 'pencil.svg');
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.changeLiviconEvo( option, value )</samp></h4>
+                    <p>Can take all the options and callback functions mentioned above in the <b>5. Options</b> section of this documentation.</p>
+                    <p>Please keep in mind that a new icon will have all previously options added earlier with a first creation.</p>
+<pre class="prettyprint linenums">//erase an existing icon and draw a new one. Options are as Object.
+my_livicon.changeLiviconEvo({
+    name: 'pencil.svg',
+    size: '33.33333%',
+    drawOnViewport: true
+});
+
+//Or with one option-value pair
+my_livicon.changeLiviconEvo('name', 'pencil.svg');
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.drawLiviconEvo( option, value, force )</samp></h4>
+                    <p>Can take only the options mentioned in the example below.</p>
+                    <p>In general, the drawing animation doesn't start if icon is already tweening. The third argument <b>force</b> makes an instant drawing of icon's lines.</p>
+<pre class="prettyprint linenums">/*
+Can take the following options:
+drawDelay, drawTime, drawStagger, drawStartPoint, drawColor, drawColorTime, drawEase, drawReversed
+And callback function:
+beforeDraw, afterDraw, duringDraw
+*/
+
+//Drawing an icon. Options are as Object.
+my_livicon.drawLiviconEvo({
+    drawTime: 3,
+    drawStagger: 0,
+    drawEase: Bounce.easeOut
+});
+
+//Or with one option-value pair
+my_livicon.drawLiviconEvo('drawTime', 3);
+
+//With the "force" argument
+my_livicon.drawLiviconEvo(true);
+my_livicon.drawLiviconEvo({drawTime: 3, drawStagger: 0}, true);
+my_livicon.drawLiviconEvo('drawTime', 3, true);
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.eraseLiviconEvo( option, value, force )</samp></h4>
+                    <p>Can take only the options mentioned in the example below.</p>
+                    <p>In general, the erasing animation doesn't start if icon is already tweening. The third argument <b>force</b> makes an instant erasing of icon's lines.</p>
+<pre class="prettyprint linenums">/*
+Can take the following options:
+eraseDelay, eraseTime, eraseStagger, eraseStartPoint, eraseEase, eraseReversed
+And callback function:
+beforeErase, afterErase, duringErase
+*/
+
+//Erasing an icon. Options are as Object.
+my_livicon.eraseLiviconEvo({
+    eraseTime: 3,
+    eraseStagger: 0,
+    eraseEase: Bounce.easeOut
+});
+
+//Or with one option-value pair
+my_livicon.eraseLiviconEvo('eraseTime', 3);
+
+//With the "force" argument
+my_livicon.eraseLiviconEvo(true);
+my_livicon.eraseLiviconEvo({eraseTime: 3, eraseStagger: 0}, true);
+my_livicon.eraseLiviconEvo('eraseTime', 3, true);
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.playLiviconEvo( option, value, force )</samp></h4>
+                    <p>Can take only the options mentioned in the example below.</p>
+                    <p>In general, the new animation starts if icon is not tweening. The third argument <b>force</b> resets all icon's animations and starts a main one from the beginning.</p>
+<pre class="prettyprint linenums">/*
+Can take the following options:
+duration, delay, repeat, repeatDelay
+And callback function:
+beforeAnim, afterAnim, duringAnim
+*/
+
+//Start an animation. Options are as Object.
+my_livicon.playLiviconEvo({
+    duration: 'default',
+    repeat: 'loop'
+});
+
+//Or with one option-value pair
+my_livicon.playLiviconEvo('duration', 5);
+
+//With the "force" argument
+my_livicon.playLiviconEvo(true);
+my_livicon.playLiviconEvo({duration: 0.5, repeat: 2}, true);
+my_livicon.playLiviconEvo('duration', 3, true);
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.stopLiviconEvo()</samp></h4>
+                    <p>Doesn't take any arguments. Stops an animation and resets it to starting position.</p>
+                    <pre class="prettyprint linenums">my_livicon.stopLiviconEvo();</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.pauseLiviconEvo()</samp></h4>
+                    <p>Doesn't take any arguments. Pauses an animation on a current position.</p>
+                    <pre class="prettyprint linenums">my_livicon.pauseLiviconEvo();</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.resumeLiviconEvo()</samp></h4>
+                    <p>Doesn't take any arguments. Resumes an animation from a stopped position.</p>
+                    <pre class="prettyprint linenums">my_livicon.resumeLiviconEvo();</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.removeLiviconEvo( option, value, total )</samp></h4>
+                    <p>Can take only the options as 2 callback functions.</p>
+                    <p>The third argument <b>total</b> removes the container with LivIcon (<code>my_livicons</code> in our example) too.</p>
+<pre class="prettyprint linenums">/*
+Can take only callback function as options:
+beforeRemove, afterRemove
+*/
+
+//Remove a LivIcon.
+my_livicon.removeLiviconEvo({
+    beforeRemove: function(){
+        console.log('beforeRemove fired')
+    }
+});
+
+//With the "total" argument
+my_livicon.removeLiviconEvo(true);
+my_livicon.removeLiviconEvo({
+    beforeRemove: function(){
+        console.log('beforeRemove fired')
+    }
+}, true);
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.liviconEvoState( setter )</samp></h4>
+                    <p>For <b>morph</b> icons only!</p>
+                    <p>Can take only the one option with two possible values <code>'start'</code> and <code>'end'</code>.</p>
+<pre class="prettyprint linenums">//Getting the current state of morph LivIcon.
+my_livicon.liviconEvoState();
+//returns "start" or "end" for morph icons
+
+//Setting the moprhState
+my_livicon.liviconEvoState('end');
+</pre>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-header"><samp>.liviconEvoOptions()</samp></h4>
+                    <p>Doesn't take any arguments. Returns an Object with all saved options.</p>
+<pre class="prettyprint linenums">my_livicon.liviconEvoOptions();</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-sky-light" id="credits">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12"><h3 class="page-header">7. Credits</h3></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul>
+                        <li><a href="http://jquery.com">jQuery</a> team for outstanding work that makes our job easier.</li>
+                        <li>Dmitry Baranovskiy, the author of <a href="http://snapsvg.io">Snap.svg</a> library</li>
+                        <li>GreenSock Animation Platform aka <a href="http://greensock.com/">GSAP</a></li>
+                        <li>Ryan Van Etten the author of <a href="https://github.com/ryanve/verge">Verge script</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-white" id="credits">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12"><h3 class="page-header">Thank you!</h3></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Once again, thank you so much for purchasing this item. As I said at the beginning, I'd be glad to help you if you have any questions relating to this package. No guarantees, but I'll do my best to assist. If you have a more general question relating to LivIcons Evolution, you might contact me via my user page contact form <a href="http://codecanyon.net/user/DeeThemes#contact">here</a>. And again if you like these app please rate it with 5 stars.<br><br><b>Best regards,<br>Dee</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-color-white" id="changelog">
+        <div class="content-md container">
+            <div class="row">
+                <div class="col-md-12"><h3 class="page-header">Changelog</h3></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.8.379 (June 26, 2019)</b>
+                            <br>
+                            -- Fixed two icons: pen.svg, and brush.svg in a part of looped animations
+                            <br>
+                            -- Some changes of the package contents to match "WordPress plugin requirements by Envato" because this script is used in a WordPress plugin
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.7.379 (March 11, 2019)</b>
+                            <br>
+                            -- Updated GreenSock Animation Platform files with the latest versions. 
+                            <br>
+                            -- Made a fix for "eraseStagger" custom value
+                            <br>
+                            -- Made some code changes to match "WordPress plugin requirements by Envato" because this script is used in a WordPress plugin
+                            <br>
+                            -- Version 2.6.379 is skipped for synchronizing with WordPress version
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.5.379 (October 24, 2018)</b>
+                            <br>
+                            -- Added a fix for ForeFox error with "display:none" icons
+                            <br>
+                            -- Made code syntax fix of 3 icons: narrow-screen.svg, scales.svg and wide-screen.svg
+                            <br>
+                            -- For this update:
+                                <br>
+                                &nbsp;&nbsp;- replace all JavaScript and CSS files with new ones from the "LivIconsEvo-2.4.379 > for_upload > LivIconsEvo" folder
+                                <br>
+                                &nbsp;&nbsp;- copy new SVG icons files from the "LivIconsEvo-2.4.379 > for_upload > LivIconsEvo > svg" folder
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.4.379 (May 22, 2018)</b>
+                            <br>
+                            -- Updated GreenSock Animation Platform files with the latest versions.
+                            <br>
+                            -- Updated Verge script with the latest version.
+                            <br>
+                            -- Added 4 new icons: cpu.svg, headphones.svg, radiation.svg, scales.svg
+                            <br>
+                            -- For this update:
+                                <br>
+                                &nbsp;&nbsp;- replace all JavaScript and CSS files with new ones from the "LivIconsEvo-2.4.379 > for_upload > LivIconsEvo" folder
+                                <br>
+                                &nbsp;&nbsp;- copy new SVG icons files from the "LivIconsEvo-2.4.379 > for_upload > LivIconsEvo > svg" folder
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.3.375 (March 25, 2017)</b>
+                            <br>
+                            -- Updated GreenSock Animation Platform files with the latest versions.
+                            <br>
+                            -- Updated SnapSVG lib with the latest version.
+                            <br>
+                            -- Some code improvement of the main LivIcons Evo JS file for working with the latest version of SnapSVG
+                            <br>
+                            -- Added 5 new icons: collapse.svg, expand.svg, narrow-screen.svg, playlist.svg, wide-screen.svg
+                            <br>
+                            -- Fixed 4 icons: box.svg, box-add.svg, box-extract.svg, stopwatch.svg for working with the latest version of TweenMax
+                            <br>
+                            -- For this update:
+                                <br>
+                                &nbsp;&nbsp;- replace all JavaScript and CSS files with new ones from the "LivIconsEvo-2.3.375 > for_upload > LivIconsEvo" folder
+                                <br>
+                                &nbsp;&nbsp;- copy new and fixed SVG icons files from the "LivIconsEvo-2.3.375 > for_upload > LivIconsEvo > svg" folder
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.2.370 (November 15, 2016)</b>
+                            <br>
+                            -- Updated GreenSock Animation Platform files with the latest versions.
+                            <br>
+                            -- Added 9 new icons: loader-16.svg, location-alt.svg, morph-bell.svg, morph-cloud.svg, morph-quality.svg, morph-sort-alt.svg, notebook.svg, priority-high.svg, priority-low.svg
+                            <br>
+                            -- For this update:
+                                <br>
+                                &nbsp;&nbsp;- replace the file "LivIconsEvo.Tools.js" from the "LivIconsEvo-2.2.370 > for_upload > LivIconsEvo > js" folder
+                               <br>
+                               &nbsp;&nbsp;- replace all JavaScript files from the "LivIconsEvo-2.2.370 > for_upload > LivIconsEvo > js > tools" folder
+                               <br>
+                               &nbsp;&nbsp;- copy new icons files from the "LivIconsEvo-2.2.370 > for_upload > LivIconsEvo > svg" folder
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.2.361 (July 15, 2016)</b>
+                            <br>
+                            -- Added 8 new "loader" icons (loader-8.svg ... loader-15.svg).
+                            <br>
+                            -- Made a universal main JS file for both versions (jQuery and WordPress) of the product.
+                            <br>
+                            -- For this update, replace all JavaScript, SVG and CSS files with new ones from the "LivIconsEvo-2.2.361 > for_upload > LivIconsEvo" folder.
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.1.353 (June 16, 2016)</b>
+                            <br>
+                            -- Updated GreenSock Animation Platform files with the latest versions.
+                            <br>
+                            -- Improved the tryToSharpen option's calculation.
+                            <br>
+                            -- Improved the CSS styles. From now any div.livicon-evo stays as a "block" element, but any span.livicon-evo becomes a "inline-block" element and can be easy alignment inside paragraph tag "&lt;p>...&lt;/p>" as a usual text, for example.
+                            <br>
+                            -- Added 8 new icons: apple.svg, camcoder.svg, clapboard.svg, grid.svg, label-hot.svg, label-new.svg, screenshot.svg, wifi.svg
+                            <br>
+                            -- For this update, completely replace all JavaScript, SVG and CSS files with new ones from the "LivIconsEvo-2.1.353 > for_upload > LivIconsEvo" folder.
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.0.345 (June 01, 2016)</b>
+                            <br>
+                            -- Added 10 new icons: file-export.svg, file-import.svg, morph-chevron-close.svg, morph-menu-arrow-bottom.svg, morph-menu-arrow-left.svg, morph-menu-arrow-right.svg, morph-menu-arrow-top.svg, morph-search-close.svg, morph-star.svg, servers.svg
+                            <br>
+                            -- For this update just replace icons files with new ones from the "LivIconsEvo-2.0.345 > for_upload > LivIconsEvo > svg" folder.
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.0.335 (May 24, 2016)</b>
+                            <br>
+                            -- Added 12 new icons: anchor.svg, british-pound.svg, euro.svg, hourglass.svg, morph-bookmark.svg, paper-plane.svg, satellite.svg, sky-dish.svg, two-pointers.svg, us-dollar.svg, wind.svg, wine-glass.svg
+                            <br>
+                            -- For this update just replace icons files with new ones from the "LivIconsEvo-2.0.335 > for_upload > LivIconsEvo > svg" folder.
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        <samp>
+                            <b>Version 2.0.323 (May 17, 2016)</b>
+                            <br>
+                            -- Added 8 new icons: building.svg, handcuffs.svg, idea.svg, more.svg, morph-menu-close-alt.svg, morph-thumbnails-close.svg, scroll.svg, scroll-alt.svg
+                            <br>
+                            -- Fixed 1 icon: morph-checkbox-2.svg
+                            <br>
+                            -- For this update just replace icons files with new ones from the "LivIconsEvo-2.0.323 > for_upload > LivIconsEvo > svg" folder.
+                        </samp>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p><samp><b>Version 2.0.315 (May 10, 2016)</b><br>Initial Realize</samp></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--end .container-->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/prettify.min.js"></script>
+    <script>
+        !function ($) {
+            $(function(){
+                if (window.prettyPrint) {
+                    prettyPrint();
+                }
+            });
+        }(window.jQuery);
+    </script>
+    
+</body>
+</html>

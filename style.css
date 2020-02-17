@@ -1,0 +1,216 @@
+*{
+    margin: 0;
+}
+html{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; 
+    font-family: 'IBM Plex Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility; 
+}
+header{
+    background-size: cover;
+    background: rgb(82,22,170);
+    background: linear-gradient(-145deg, rgba(82,22,170,1) 0%, rgba(28,0,59,1) 72%);
+    width: 100%;
+}
+.navbar{
+    padding: 0;
+}
+#primary-nav{
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding-top: 25px;
+    padding-bottom: 27px;
+}
+#logo{
+    width: 157px;
+    max-width: 100%;
+    height: auto;
+}
+/*change logo on scroll*/
+#logo_mic{
+    width: 58px;
+    max-width: 100%;
+    height: auto;
+    display: none;
+}
+#header_image{
+    width: 445px;
+    max-width: 100%;
+    height: auto;
+}
+/*keep footer down*/
+main{
+    min-height: 100%;
+}
+/*main*/
+.col-lg-12 {
+    flex-wrap: wrap;
+    padding-top: 127px;
+    padding-bottom: 200px;/*120px*/
+}
+.col-lg-6{
+    width: 100%;
+}
+.floating{
+    float: left;
+    -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: Floating;
+    -moz-animation-duration: 4s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+@keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 18px);}
+    to {-webkit-transform: translate(0, -0px);    }    
+}   
+@keyframes Floating{
+    from {-moz-transform:translate(0, 0px);}
+    65% {-moz-transform:translate(0, 18px);}
+    to {-moz-transform: translate(0, -0px);}    
+}
+.right{
+    text-align: end;
+    align-self: center;
+    color: #ffffff;
+}
+.right p{
+    padding-left: 39px;
+    padding-right: 3px;
+    font-size: 1.01rem;
+}
+.right h1{
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin-bottom: 49px;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 500;
+}
+.right p:first-of-type{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+.right p:last-of-type{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+}
+span.position{
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 100;
+}
+/* SLIDER */
+.pagination{
+    flex-direction: row-reverse;
+}
+.pagination ul{
+    display: flex;
+}
+.pagination li{
+    list-style-type: none;
+}
+.pagination li:first-of-type{
+    margin-right: 80px;
+}
+
+/* ABOUT US */
+.about-us{
+    padding-top: 44px;
+    padding-bottom: 178px;
+}
+h2{
+    font-size: 3rem;
+    font-family: 'IBM Plex Sans', sans-serif;
+    text-transform: uppercase;
+    padding-top: 160px;
+    font-weight: 500;
+}
+#about-us-box{
+    align-self: flex-end;
+    text-align: -webkit-center;
+}
+h3{
+    font-size: 1rem;
+    font-weight: 500;
+}
+/*FOOTER*/
+footer{
+    background: linear-gradient(-145deg, rgba(82,22,170,1) 0%, rgba(28,0,59,1) 72%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    /* bottom:0; */
+}
+footer p{
+    font-family: Arial, sans-serif;
+}
+@media screen and (max-width: 991px){
+   .right{
+        padding: 30px 0 0;
+    }
+    .right p{
+        padding-right: 6px;
+    }
+    .right h1, h2{
+        font-size: 2.5rem;
+    }
+    .right p{
+        font-size: 0.90rem;
+    }
+    .livicon-evo.livicon-evo-holder{
+        width: 230px!important;
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 640px){
+    .col-lg-12{
+        padding-bottom: 100px;
+    }
+}
+@media screen and (max-width: 480px){
+    .col-lg-12{
+        padding-bottom: 60px;
+    }
+    .right p{
+        padding: 3px;
+    }
+    .right h1, h2{
+        font-size: 2rem;
+    }
+    #about h2{
+        padding-top: 60px!important;
+    }
+    .right p{
+        font-size: 0.80rem;
+    }
+    .livicon-evo.livicon-evo-holder{
+        width: 150px!important;
+        max-width: 100%;
+    }
+    footer p{
+        font-size: 0.70rem;
+    }
+    #logo{
+        width: 100px!important;
+    }
+    #logo_mic{
+        width: 30px;
+    }
+}
