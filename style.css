@@ -157,9 +157,11 @@ footer{
     position: absolute;
     width: 100%;
     /* bottom:0; */
+    height:50px;
 }
 footer p{
     font-family: Arial, sans-serif;
+    margin: auto;
 }
 @media screen and (max-width: 991px){
    .right{
